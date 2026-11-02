@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LoveAI — ИИ, который делает сайты за тебя</title>
+  <meta name="description" content="Напиши, что нужно — LoveAI сам сделает сайт, игру или приложение. Бесплатно для Android, Windows и iPhone.">
+  <meta name="theme-color" content="#070a14">
+  <meta property="og:title" content="LoveAI — ИИ, который делает сайты за тебя">
+  <meta property="og:description" content="Опиши задачу словами или голосом — LoveAI соберёт готовый сайт. Android, Windows, iPhone.">
+  <meta property="og:image" content="icon-512.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="grid"></span></div>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="LoveAI — на главную"><img src="logo.png" alt="" width="34" height="34"><span>LoveAI</span></a>
+    <nav class="links" aria-label="Разделы">
+      <a href="#features">Возможности</a>
+      <a href="#how">Как это работает</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="btn btn-sm btn-grad" href="#download">Скачать</a>
+  </header>
+
+  <main id="top">
+    <!-- hero -->
+    <section class="hero">
+      <div class="hero-text">
+        <a class="pill" href="#download"><span class="dot"></span><span id="heroVersion">Новая версия</span><span class="pill-sep">·</span>голосовые сообщения</a>
+        <h1>ИИ, который <span class="grad">делает сайты</span> за&nbsp;тебя</h1>
+        <p class="lead">Напиши или скажи, что нужно, — LoveAI сам создаст сайт, игру или приложение и сразу покажет результат. Без кода и бесплатно.</p>
+        <div class="cta">
+          <a class="btn btn-lg btn-grad" id="primaryCta" href="#download">
+            <span class="ico" id="primaryIcon"></span><span id="primaryLabel">Скачать LoveAI</span>
+          </a>
+          <a class="btn btn-lg btn-ghost" href="app/">Открыть в браузере</a>
+        </div>
+        <p class="cta-note" id="primaryNote">Android · Windows · iPhone · браузер</p>
+      </div>
+
+      <div class="mock" aria-label="Как LoveAI делает сайт" role="img">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="window">
+          <div class="win-bar"><i></i><i></i><i></i><span>LoveAI</span></div>
+          <div class="win-body">
+            <div class="chat">
+              <div class="bubble user" id="mUser"><span id="mTyped"></span><span class="caret"></span></div>
+              <div class="bubble ai" id="mAi">
+                <div class="think"><span class="spark">✦</span><span class="shim">Думаю</span></div>
+                <div class="ai-done">
+                  <p>Готово! Сделал сайт кофейни с меню и кнопкой заказа.</p>
+                  <div class="chip"><b>HTML</b>index.html<em>создан</em></div>
+                  <div class="chip"><b>CSS</b>style.css<em>создан</em></div>
+                </div>
+              </div>
+              <div class="composer"><span class="mic">🎤</span><span class="ph">Чем могу помочь?</span><span class="send">↑</span></div>
+            </div>
+            <div class="preview" id="mPreview">
+              <div class="pv-bar"><span>coffee.loveai</span></div>
+              <div class="pv-site">
+                <div class="pv-hero">
+                  <div class="pv-logo">☕ Brew&nbsp;Lab</div>
+                  <div class="pv-title">Кофе, который будит мечты</div>
+                  <div class="pv-btn">Заказать</div>
+                </div>
+                <div class="pv-menu">
+                  <div><span>Латте</span><b>1 200 ₸</b></div>
+                  <div><span>Раф</span><b>1 400 ₸</b></div>
+                  <div><span>Флэт уайт</span><b>1 300 ₸</b></div>
+                </div>
+              </div>
+              <div class="pv-empty"><span>✦</span>Здесь появится сайт</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- prompts marquee -->
+    <section class="marquee" aria-label="Примеры задач">
+      <div class="track">
+        <span>«Сделай сайт кофейни»</span><span>«Игра змейка с рекордами»</span><span>«Портфолио фотографа»</span>
+        <span>«Сайт-признание в любви»</span><span>«Калькулятор ипотеки»</span><span>«Лендинг для барбершопа»</span>
+        <span>«Тест по истории на 10 вопросов»</span><span>«Свадебное приглашение»</span><span>«Тетрис в неоновом стиле»</span>
+        <span>«Сделай сайт кофейни»</span><span>«Игра змейка с рекордами»</span><span>«Портфолио фотографа»</span>
+        <span>«Сайт-признание в любви»</span><span>«Калькулятор ипотеки»</span><span>«Лендинг для барбершопа»</span>
+        <span>«Тест по истории на 10 вопросов»</span><span>«Свадебное приглашение»</span><span>«Тетрис в неоновом стиле»</span>
+      </div>
+    </section>
+
+    <!-- download -->
+    <section class="section" id="download">
+      <div class="head reveal">
+        <span class="kicker">Скачать</span>
+        <h2>Выбери своё устройство</h2>
+        <p>Одна и та же LoveAI везде. Новые версии приходят сами.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal" data-os="android">
+          <span class="tag">Для твоего устройства</span>
+          <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.6 9.48l1.84-3.18a.38.38 0 10-.66-.38l-1.86 3.22A11.4 11.4 0 0012 8.1c-1.77 0-3.43.38-4.92 1.04L5.22 5.92a.38.38 0 10-.66.38L6.4 9.48A10.8 10.8 0 001 18h22a10.8 10.8 0 00-5.4-8.52zM7 15.25a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm10 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg></div>
+          <h3>Android</h3>
+          <p class="meta"><span data-v>—</span> · APK · <span data-size="apk">—</span></p>
+          <a class="btn btn-grad btn-block" href="https://github.com/3Ve3Daa/loveai/releases/latest/download/LoveAI.apk" download>Скачать APK</a>
+          <details>
+            <summary>Как установить</summary>
+            <ol>
+              <li>Скачай файл и открой его из уведомления или «Загрузок».</li>
+              <li>Если телефон спросит — разреши установку из этого источника.</li>
+              <li>Нажми «Установить». Обновления потом придут сами.</li>
+            </ol>
+          </details>
+        </article>
+
+        <article class="card reveal" data-os="windows">
+          <span class="tag">Для твоего устройства</span>
+          <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5.1l7.4-1v7.2H3V5.1zm8.3-1.1L21 2.6v8.7h-9.7V4zM3 12.6h7.4v7.2L3 18.8v-6.2zm8.3 0H21v8.8l-9.7-1.4v-7.4z"/></svg></div>
+          <h3>Windows</h3>
+          <p class="meta"><span data-v>—</span> · установщик · <span data-size="exe">—</span></p>
+          <a class="btn btn-grad btn-block" href="https://github.com/3Ve3Daa/loveai/releases/latest/download/LoveAI-Setup.exe" download>Скачать для Windows</a>
+          <details>
+            <summary>Как установить</summary>
+            <ol>
+              <li>Запусти скачанный <b>LoveAI-Setup.exe</b>.</li>
+              <li>Если появится «Windows защитила ваш компьютер» — нажми «Подробнее» → «Выполнить в любом случае».</li>
+              <li>Выбери папку и нажми «Установить». Обновляется программа сама.</li>
+            </ol>
+          </details>
+        </article>
+
+        <article class="card reveal" data-os="ios">
+          <span class="tag">Для твоего устройства</span>
+          <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8a4.6 4.6 0 00-3.6-2c-1.5-.2-3 .9-3.8.9s-2-.9-3.3-.9a4.9 4.9 0 00-4.1 2.5c-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.1 2.5 1.3 0 1.7-.8 3.3-.8s2 .8 3.3.8 2.2-1.2 3-2.4a10 10 0 001.4-2.8 4.3 4.3 0 01-2.7-4.1zM14 5.3a4.4 4.4 0 001-3.2 4.5 4.5 0 00-2.9 1.5 4.2 4.2 0 00-1 3.1A3.7 3.7 0 0014 5.3z"/></svg></div>
+          <h3>iPhone и iPad</h3>
+          <p class="meta"><span data-v>—</span> · веб-приложение</p>
+          <a class="btn btn-grad btn-block" href="app/">Открыть LoveAI</a>
+          <details open>
+            <summary>Как поставить на экран «Домой»</summary>
+            <ol>
+              <li>Открой эту страницу в <b>Safari</b>.</li>
+              <li>Нажми «Поделиться» <span class="share">⬆︎</span> внизу экрана.</li>
+              <li>Выбери «На экран «Домой»» → «Добавить».</li>
+            </ol>
+          </details>
+        </article>
+
+        <article class="card reveal" data-os="web">
+          <span class="tag">Для твоего устройства</span>
+          <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.9 6h-3a15.7 15.7 0 00-1.4-3.6A8 8 0 0118.9 8zM12 4a14 14 0 011.9 4h-3.8A14 14 0 0112 4zM4.3 14a8.2 8.2 0 010-4h3.4a16.5 16.5 0 000 4H4.3zm.8 2h3a15.7 15.7 0 001.4 3.6A8 8 0 015.1 16zm3-8h-3a8 8 0 014.3-3.6A15.7 15.7 0 008.1 8zM12 20a14 14 0 01-1.9-4h3.8A14 14 0 0112 20zm2.3-6H9.7a14.7 14.7 0 010-4h4.6a14.7 14.7 0 010 4zm.2 5.6a15.7 15.7 0 001.4-3.6h3a8 8 0 01-4.4 3.6zm1.8-5.6a16.5 16.5 0 000-4h3.4a8.2 8.2 0 010 4h-3.4z"/></svg></div>
+          <h3>В браузере</h3>
+          <p class="meta"><span data-v>—</span> · без установки</p>
+          <a class="btn btn-ghost btn-block" href="app/">Открыть в браузере</a>
+          <details>
+            <summary>Что это</summary>
+            <ol>
+              <li>Работает на любом компьютере и телефоне.</li>
+              <li>Проекты и чаты хранятся в этом браузере.</li>
+            </ol>
+          </details>
+        </article>
+      </div>
+      <p class="whatsnew reveal" id="whatsNew" hidden></p>
+    </section>
+
+    <!-- features -->
+    <section class="section" id="features">
+      <div class="head reveal">
+        <span class="kicker">Возможности</span>
+        <h2>Всё, чтобы идея стала сайтом</h2>
+      </div>
+      <div class="features">
+        <div class="feat reveal big">
+          <div class="f-ico">✦</div>
+          <h3>Сайты и игры по одной фразе</h3>
+          <p>Опиши задачу обычными словами — LoveAI напишет весь код: страницы, стили, анимации, логику. Попроси поправить — исправит сам.</p>
+          <div class="f-demo"><span>Сделай змейку</span><span>→</span><span class="ok">index.html ✓</span></div>
+        </div>
+        <div class="feat reveal">
+          <div class="f-ico">🎤</div>
+          <h3>Голосовые сообщения</h3>
+          <p>Нажми микрофон и скажи, что сделать. Речь превратится в задачу.</p>
+        </div>
+        <div class="feat reveal">
+          <div class="f-ico">📱</div>
+          <h3>Живое превью</h3>
+          <p>Сайт виден сразу — как на компьютере, планшете и телефоне.</p>
+        </div>
+        <div class="feat reveal">
+          <div class="f-ico">🖼️</div>
+          <h3>Фото и скриншоты</h3>
+          <p>Прикрепи картинку — ИИ вставит её на сайт или повторит дизайн.</p>
+        </div>
+        <div class="feat reveal">
+          <div class="f-ico">⚡</div>
+          <h3>Без перебоев</h3>
+          <p>Если одна модель занята, LoveAI тихо переключится на другую.</p>
+        </div>
+        <div class="feat reveal">
+          <div class="f-ico">🔄</div>
+          <h3>Обновляется сам</h3>
+          <p>Новые версии приходят на все устройства — ничего не нужно скачивать заново.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- how -->
+    <section class="section" id="how">
+      <div class="head reveal">
+        <span class="kicker">Как это работает</span>
+        <h2>Три шага до готового сайта</h2>
+      </div>
+      <ol class="steps">
+        <li class="reveal"><span class="num">1</span><h3>Скачай LoveAI</h3><p>Для телефона, компьютера или открой прямо в браузере.</p></li>
+        <li class="reveal"><span class="num">2</span><h3>Опиши задачу</h3><p>Текстом, голосом или фото: «сделай сайт для моей кофейни».</p></li>
+        <li class="reveal"><span class="num">3</span><h3>Получи результат</h3><p>Готовый сайт появляется в превью. Правь его, просто продолжая разговор.</p></li>
+      </ol>
+    </section>
+
+    <!-- faq -->
+    <section class="section narrow" id="faq">
+      <div class="head reveal">
+        <span class="kicker">Вопросы</span>
+        <h2>Частые вопросы</h2>
+      </div>
+      <div class="faq">
+        <details class="reveal"><summary>Это правда бесплатно?</summary><p>Да. LoveAI использует бесплатные ИИ-модели и сам выбирает самую сильную из доступных.</p></details>
+        <details class="reveal"><summary>Что нужно для начала?</summary><p>При первом запуске нажми «Обновить план» и вставь API-ключ — это делается один раз. Дальше просто пиши задачи.</p></details>
+        <details class="reveal"><summary>Windows пишет, что файл может быть опасным</summary><p>Так Windows реагирует на новые программы без платной цифровой подписи. Нажми «Подробнее» → «Выполнить в любом случае».</p></details>
+        <details class="reveal"><summary>Где хранятся мои проекты?</summary><p>Прямо на твоём устройстве — внутри приложения. Никуда не загружаются, кроме запроса к ИИ.</p></details>
+        <details class="reveal"><summary>Как обновить LoveAI?</summary><p>Никак — само. Программа на компьютере ставит обновление при перезапуске, Android показывает «Вышла новая версия», веб-версия обновляется при открытии.</p></details>
+        <details class="reveal"><summary>Нужен ли интернет?</summary><p>Да, чтобы ИИ отвечал. А вот уже готовые проекты открываются и без сети.</p></details>
+      </div>
+    </section>
+
+    <!-- final -->
+    <section class="final reveal">
+      <img src="logo.png" alt="" width="72" height="72">
+      <h2>Попробуй прямо сейчас</h2>
+      <p>Первый сайт будет готов через пару минут.</p>
+      <div class="cta center">
+        <a class="btn btn-lg btn-grad" href="#download">Скачать LoveAI</a>
+        <a class="btn btn-lg btn-ghost" href="app/">Открыть в браузере</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="brand small"><img src="logo.png" alt="" width="24" height="24"><span>LoveAI</span></div>
+    <span class="muted" id="footVersion"></span>
+    <span class="muted">© <span id="year">2026</span> LoveAI</span>
+  </footer>
+
+  <script src="landing.js"></script>
+</body>
+</html>

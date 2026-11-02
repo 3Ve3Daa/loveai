@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
+  <meta name="color-scheme" content="light dark">
+  <title>LoveAI</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="LoveAI">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1d24" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="Проекты">
+      <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="LoveAI">
+        <div class="brand-name">LoveAI</div>
+      </div>
+      <button class="side-btn" id="newProjectBtn" type="button"><span class="ico"><i data-icon="plus"></i></span> Новый проект</button>
+      <label class="search">
+        <i data-icon="search"></i>
+        <input type="search" id="projectSearch" placeholder="Поиск проектов" autocomplete="off" aria-label="Поиск проектов">
+      </label>
+      <div class="section-title">Проекты <span class="count" id="projectCount"></span></div>
+      <ul class="projects" id="projectList"></ul>
+      <div class="user-card">
+        <div class="avatar-sm">Ты</div>
+        <div class="who">Мой компьютер<small id="modelLabel">—</small></div>
+        <button class="icon-btn" id="settingsBtn" type="button" title="Настройки" aria-label="Настройки"><i data-icon="settings"></i></button>
+      </div>
+      <button class="upgrade-btn" id="sideUpgradeBtn" type="button"><i data-icon="sparkle"></i>Обновить план</button>
+    </aside>
+    <div class="scrim" id="scrim" aria-hidden="true"></div>
+
+    <main class="chat">
+      <header class="chat-head" id="chatHead">
+        <button class="icon-btn mobile-only" id="menuBtn" type="button" title="Меню" aria-label="Открыть список проектов"><i data-icon="menu"></i></button>
+        <div class="chat-title"><i data-icon="folder"></i><span id="chatTitle">Проект</span></div>
+        <div class="head-actions">
+          <button class="btn ghost small" id="clearBtn" type="button" title="Очистить переписку"><i data-icon="trash"></i><span class="label">Очистить чат</span></button>
+          <button class="btn ghost small" id="previewToggle" type="button" title="Показать или скрыть превью" aria-pressed="false"><i data-icon="panel"></i><span class="label">Превью</span></button>
+        </div>
+      </header>
+
+      <div class="messages" id="messages" aria-live="polite"></div>
+
+      <div class="composer-wrap">
+        <button class="jump-btn" id="jumpBtn" type="button" title="Вниз" aria-label="Прокрутить вниз"><i data-icon="arrow-down"></i></button>
+        <form class="composer" id="composer">
+          <div class="attachments hidden" id="attachments"></div>
+          <textarea id="input" rows="1" placeholder="Чем могу помочь?" aria-label="Сообщение"></textarea>
+          <div class="recorder" id="recorder" aria-live="polite">
+            <span class="rec-dot" aria-hidden="true"></span>
+            <span class="rec-time" id="recTime">0:00</span>
+            <div class="rec-wave" id="recWave" aria-hidden="true"></div>
+            <div class="rec-text hidden" id="recText"></div>
+            <button type="button" class="btn ghost small" id="recCancel">Отмена</button>
+          </div>
+          <div class="composer-bar">
+            <div class="bar-left">
+              <button type="button" class="icon-btn attach-btn" id="attachBtn" title="Прикрепить фото" aria-label="Прикрепить фото">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.5l-6.4 6.4a4 4 0 01-5.7-5.7l6.7-6.7a2.7 2.7 0 013.8 3.8l-6.7 6.7a1.3 1.3 0 01-1.9-1.9L12.5 6"/></svg>
+              </button>
+              <button type="button" class="icon-btn mic-btn" id="micBtn" title="Голосовое сообщение" aria-label="Записать голосовое сообщение"><i data-icon="mic"></i></button>
+              <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp,image/gif" multiple hidden>
+              <button type="button" class="model-pill" id="composerModel" title="Сменить модель">—</button>
+            </div>
+            <button class="send" id="sendBtn" type="submit" title="Отправить" aria-label="Отправить"></button>
+          </div>
+        </form>
+        <div class="hint">ИИ может ошибаться<span class="keys"> · <kbd>Enter</kbd> — отправить, <kbd>Shift</kbd>+<kbd>Enter</kbd> — новая строка</span></div>
+      </div>
+    </main>
+
+    <section class="preview" id="preview" aria-label="Превью">
+      <div class="preview-head">
+        <button class="icon-btn mobile-only" id="closePreviewMobile" type="button" title="Назад к чату" aria-label="Назад к чату"><i data-icon="chevron-left"></i></button>
+        <div class="seg preview-tabs" role="tablist">
+          <button class="tab active" data-tab="site" type="button" role="tab">Сайт</button>
+          <button class="tab" data-tab="files" type="button" role="tab">Файлы<span class="count" id="fileCount"></span></button>
+        </div>
+        <div class="seg devices" id="devices" role="group" aria-label="Ширина экрана">
+          <button class="dev active" data-device="desktop" type="button" title="Компьютер" aria-label="Компьютер"><i data-icon="monitor"></i></button>
+          <button class="dev" data-device="tablet" type="button" title="Планшет · 768 px" aria-label="Планшет"><i data-icon="tablet"></i></button>
+          <button class="dev" data-device="phone" type="button" title="Телефон · 390 px" aria-label="Телефон"><i data-icon="phone"></i></button>
+        </div>
+        <div class="head-actions">
+          <button class="icon-btn" id="openTab" type="button" title="Открыть в новой вкладке" aria-label="Открыть в новой вкладке"><i data-icon="external"></i></button>
+          <button class="icon-btn" id="openFolder" type="button" title="Открыть папку проекта" aria-label="Открыть папку проекта"><i data-icon="folder-open"></i></button>
+          <button class="icon-btn desktop-only" id="closePreview" type="button" title="Скрыть" aria-label="Скрыть превью"><i data-icon="close"></i></button>
+        </div>
+      </div>
+      <div class="window">
+        <div class="addr" id="addrBar">
+          <button class="icon-btn sm" id="reloadPreview" type="button" title="Обновить" aria-label="Обновить превью"><i data-icon="refresh"></i></button>
+          <div class="addr-field" title="Адрес превью"><i data-icon="lock"></i><span id="addrUrl">—</span></div>
+          <span class="addr-size" id="devSize"></span>
+          <div class="addr-progress" aria-hidden="true"></div>
+        </div>
+        <div class="preview-body">
+          <div class="stage" id="stage"><iframe id="frame" title="Превью сайта"></iframe></div>
+          <div class="empty-preview" id="emptyPreview">
+            <svg class="empty-art" viewBox="0 0 160 112" fill="none" aria-hidden="true">
+              <rect x="8" y="10" width="144" height="92" rx="12" fill="var(--surface)" stroke="var(--border-strong)"/>
+              <path d="M8 22a12 12 0 0112-12h120a12 12 0 0112 12v8H8z" fill="var(--surface-2)"/>
+              <circle cx="22" cy="20" r="3" fill="#ff5f57"/><circle cx="32" cy="20" r="3" fill="#febc2e"/><circle cx="42" cy="20" r="3" fill="#28c840"/>
+              <rect x="24" y="44" width="62" height="8" rx="4" fill="var(--border-strong)"/>
+              <rect x="24" y="58" width="96" height="5" rx="2.5" fill="var(--border)"/>
+              <rect x="24" y="68" width="80" height="5" rx="2.5" fill="var(--border)"/>
+              <rect x="24" y="82" width="34" height="10" rx="5" fill="var(--accent)" opacity=".85"/>
+              <path d="M126 40l3.2 8.8L138 52l-8.8 3.2L126 64l-3.2-8.8L114 52l8.8-3.2z" fill="var(--accent)"/>
+            </svg>
+            <div class="empty-title">Здесь появится сайт</div>
+            <div class="empty-text">Опиши задачу в чате — когда ИИ создаст <code>index.html</code>, превью обновится само.</div>
+          </div>
+          <div class="file-pane hidden" id="filePane">
+            <div class="file-summary" id="fileSummary"></div>
+            <ul class="file-list" id="fileList"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+  <dialog id="settingsDlg" aria-labelledby="settingsTitle">
+    <form method="dialog" class="dlg">
+      <div class="dlg-head">
+        <h2 id="settingsTitle">Настройки</h2>
+        <button class="icon-btn" value="cancel" title="Закрыть" aria-label="Закрыть"><i data-icon="close"></i></button>
+      </div>
+      <div class="plan-card">
+        <div class="plan-info">
+          <b id="planName">Бесплатный план</b>
+          <span class="muted small-text" id="planText">Всё уже настроено — можно сразу пользоваться.</span>
+        </div>
+        <button type="button" class="btn small" id="upgradeBtn"><i data-icon="sparkle"></i>Обновить план</button>
+      </div>
+      <div class="plan-key hidden" id="planKey">
+        <label>API ключ
+          <span class="input-wrap">
+            <input type="password" id="apiKey" placeholder="Вставь свой API ключ" autocomplete="off" spellcheck="false">
+            <button type="button" class="icon-btn sm" id="toggleKey" title="Показать ключ" aria-label="Показать ключ"><i data-icon="eye"></i></button>
+          </span>
+        </label>
+        <div class="muted small-text" id="keyHint"></div>
+        <div class="muted small-text">Ключ хранится только на этом устройстве.</div>
+      </div>
+      <label>Бесплатная модель
+        <select id="modelSelect"><option>Загрузка…</option></select>
+      </label>
+      <div class="note small-text"><b>Авто</b> (рекомендуется) — берёт самую сильную бесплатную модель, а если она занята или ответила ерунду, сам переключается на следующую.</div>
+      <div class="muted small-text app-version" id="appVersion"></div>
+      <div class="dlg-actions">
+        <button class="btn" value="cancel">Отмена</button>
+        <button class="btn primary" id="saveSettings" value="save">Сохранить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="projectDlg" aria-labelledby="projectTitle">
+    <form class="dlg" id="projectForm">
+      <div class="dlg-head">
+        <h2 id="projectTitle">Новый проект</h2>
+        <button class="icon-btn" type="button" data-close title="Закрыть" aria-label="Закрыть"><i data-icon="close"></i></button>
+      </div>
+      <label>Название
+        <input type="text" id="projectName" autofocus placeholder="Например, Лендинг-кофейни" autocomplete="off" maxlength="80">
+      </label>
+      <div class="muted small-text">Для проекта создастся отдельная папка — в ней ИИ будет сохранять файлы сайта.</div>
+      <div class="field-error" id="projectError" role="alert"></div>
+      <div class="dlg-actions">
+        <button class="btn" type="button" data-close>Отмена</button>
+        <button class="btn primary" type="submit" id="createProject">Создать</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="confirmDlg" class="narrow" aria-labelledby="confirmTitle">
+    <form method="dialog" class="dlg">
+      <h2 id="confirmTitle"></h2>
+      <div class="muted" id="confirmText"></div>
+      <div class="dlg-actions">
+        <button class="btn" value="cancel">Отмена</button>
+        <button class="btn primary" value="ok" id="confirmOk">OK</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="codeDlg" aria-labelledby="codeTitle">
+    <div class="dlg code-dlg">
+      <div class="code-head">
+        <span id="codeBadge"></span>
+        <div class="code-name"><b id="codeTitle"></b><small id="codeInfo"></small></div>
+        <button class="btn small" id="copyCode" type="button"><i data-icon="copy"></i><span>Копировать</span></button>
+        <button class="icon-btn" id="closeCode" type="button" title="Закрыть" aria-label="Закрыть"><i data-icon="close"></i></button>
+      </div>
+      <pre><code id="codeBody"></code></pre>
+    </div>
+  </dialog>
+
+  <script src="app-info.js"></script>
+  <script src="default-key.js"></script>
+  <script src="mobile-backend.js"></script>
+  <script src="app.js"></script>
+  <script src="mobile-ui.js"></script>
+  <script>if ('serviceWorker' in navigator) addEventListener('load', () => {
+    const hadWorker = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.register('sw.js').then(reg => {
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) reg.update().catch(() => {}); });
+      setInterval(() => reg.update().catch(() => {}), 60 * 60 * 1000);
+    }).catch(() => {});
+    let reloading = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (!hadWorker || reloading) return;
+      reloading = true;
+      (function reload() {
+        if (typeof state !== 'undefined' && (state.busy || state.rec)) return setTimeout(reload, 2000);
+        try { sessionStorage.setItem('3v_updated', '1'); } catch {}
+        location.reload();
+      })();
+    });
+  });</script>
+</body>
+</html>
